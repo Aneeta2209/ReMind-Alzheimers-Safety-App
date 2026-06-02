@@ -9,7 +9,7 @@ export default function VoiceScreen() {
 
       <TextInput
         style={styles.input}
-        placeholder="Ammachi, don't worry. Walk slowly. I am here for you."
+        placeholder="Amma, don't worry. Walk slowly. I am here for you."
         multiline
       />
 

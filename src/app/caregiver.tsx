@@ -8,7 +8,7 @@ export default function CaregiverScreen() {
 
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Patient Details</Text>
-        <Text style={styles.normalText}>Patient Name: Ammachi</Text>
+        <Text style={styles.normalText}>Patient Name: Margaret John</Text>
         <Text style={styles.normalText}>Safe Radius: 500 m</Text>
         <Text style={styles.normalText}>Status: Safe</Text>
       </View>

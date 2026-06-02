@@ -19,7 +19,7 @@ export default function PatientScreen() {
         style={styles.button}
         onPress={() =>
           Speech.speak(
-            "Ammachi, don't worry. Walk slowly. I am here for you."
+            "Amma, don't worry. Walk slowly. I am here for you."
           )
         }
       >
