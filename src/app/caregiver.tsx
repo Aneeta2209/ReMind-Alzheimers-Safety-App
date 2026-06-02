@@ -1,4 +1,6 @@
-import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
+import { doc, getDoc } from "firebase/firestore";
+import { Alert, Linking, Pressable, StyleSheet, Text, View } from "react-native";
+import { db } from "../firebase";
 
 import { router } from "expo-router";
 export default function CaregiverScreen() {
@@ -21,15 +23,45 @@ export default function CaregiverScreen() {
 </Pressable>
 
       <Pressable
-        style={styles.button}
-        onPress={() => Alert.alert("Tracking", "Live patient tracking will be added next.")}
-      >
+  style={styles.button}
+ onPress={async () => {
+  const locationRef = doc(db, "patientLocation", "latest");
+  const locationSnap = await getDoc(locationRef);
+
+  if (locationSnap.exists()) {
+    const data = locationSnap.data();
+
+    Linking.openURL(
+      `https://www.google.com/maps?q=${data.latitude},${data.longitude}`
+    );
+  } else {
+    Alert.alert(
+      "No Location",
+      "Patient location is not available yet."
+    );
+  }
+}}
+>
         <Text style={styles.buttonText}>Track Patient Location</Text>
       </Pressable>
 
       <Pressable
         style={styles.alertButton}
-        onPress={() => Alert.alert("No Alerts", "Patient is currently inside the safe zone.")}
+        onPress={async () => {
+  const alertRef = doc(db, "alerts", "latest");
+  const alertSnap = await getDoc(alertRef);
+
+  if (alertSnap.exists()) {
+    const data = alertSnap.data();
+
+    Alert.alert(
+      "Emergency Alert",
+      `${data.patientName}: ${data.message}\nStatus: ${data.status}\nTime: ${data.time}`
+    );
+  } else {
+    Alert.alert("No Alerts", "Patient is currently inside the safe zone.");
+  }
+}}
       >
         <Text style={styles.buttonText}>View Emergency Alerts</Text>
       </Pressable>
