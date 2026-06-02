@@ -16,7 +16,17 @@ ReMind is a mobile application designed to help Alzheimer's patients navigate sa
 - React Native
 - Expo Router
 - TypeScript
+  
+## Screenshots
 
+### Home Page
+![Home Page](screenshots/Home%20page.jpeg)
+
+### Patient Dashboard
+![Patient Dashboard](screenshots/patient.jpeg)
+
+### Caregiver Dashboard
+![Caregiver Dashboard](screenshots/caregiver.jpeg)
 ## Future Enhancements
 - GPS Tracking
 - Geofencing
