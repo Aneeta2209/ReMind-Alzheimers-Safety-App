@@ -1,27 +1,16 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { router } from "expo-router";
 
-export default function HomeScreen() {
+export default function SetupScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>ReMind</Text>
-
-      <Text style={styles.subtitle}>
-        Safety Navigation App for Alzheimer's Patients
-      </Text>
+      <Text style={styles.title}>Setup moved to Register</Text>
 
       <Pressable
         style={styles.button}
         onPress={() => router.push("/register" as any)}
       >
-        <Text style={styles.buttonText}>Register</Text>
-      </Pressable>
-
-      <Pressable
-        style={styles.button}
-        onPress={() => router.push("/login" as any)}
-      >
-        <Text style={styles.buttonText}>Login</Text>
+        <Text style={styles.buttonText}>Go to Register</Text>
       </Pressable>
     </View>
   );
@@ -35,22 +24,16 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 42,
+    fontSize: 28,
     fontWeight: "bold",
     color: "#17494D",
     textAlign: "center",
-    marginBottom: 15,
-  },
-  subtitle: {
-    fontSize: 18,
-    textAlign: "center",
-    marginBottom: 40,
+    marginBottom: 30,
   },
   button: {
     backgroundColor: "#1F7A8C",
     padding: 18,
     borderRadius: 12,
-    marginBottom: 15,
     alignItems: "center",
   },
   buttonText: {
